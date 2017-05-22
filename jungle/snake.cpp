@@ -36,7 +36,7 @@ int main(void){
 	mvprintw(LINES / 3 + 1 , COLS / 3 , "arrow key to change direction");
 	mvprintw(LINES / 3 + 2 , COLS / 3 , "space to clear tree");
 	mvprintw(LINES / 3 + 4 , COLS / 3 , "'q' to quit");
-	
+
 	while((ch = getch()) != '\n' && ch != '\r');
 
 	clear();
@@ -59,7 +59,7 @@ int main(void){
 	for(i = 3 ; i >= 0 ; i--){
 		block[LINES/2][COLS/2 + i] = 1;
 		body.push(make_pair(LINES/2 , COLS/2 + i));
-		mvaddch(body.back().first , body.back().second , BODY);		
+		mvaddch(body.back().first , body.back().second , BODY);
 	}
 	mvaddch(body.back().first , body.back().second , HEAD);
 
@@ -89,10 +89,10 @@ int main(void){
 				break;
 			case 32:
 				if(on_gun){
-					fire();	
+					fire();
 					mvprintw(LINES - 1 , 3 , "shouting");
 					//		pthread_create(&id,NULL,(void *)fire,&direct);
-					thread t1(fire);	
+					thread t1(fire);
 					t1.join();
 				}
 				break;
@@ -104,7 +104,7 @@ int main(void){
 			break;
 		}
 	}
-	
+
 	while((ch = getch()) != 'q');
 	endwin();
 	return 0;

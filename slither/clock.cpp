@@ -41,7 +41,7 @@ void myclock::act(int sig){
 
 void myclock::add(void (* func)(void)){
 	task.push_back(func);
-	return;	
+	return;
 }
 
 void myclock::del(void (* func)(void)){

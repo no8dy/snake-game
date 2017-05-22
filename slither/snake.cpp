@@ -17,14 +17,14 @@ list<snake *> init_snake_list(){
 list<snake *> snake::snakes(init_snake_list());
 
 void snake::clk_hang(void){
-	
-//	static int j;	
+
+//	static int j;
 	if(enable){
 //		j = 0;
 		list<snake *>::iterator i;
 		for(i = snakes.begin() ; i != snakes.end() ; i++){
 			(*i)->move_cnt();
-//			mvprintw(j , 0 , "snkh %d %d %a" 
+//			mvprintw(j , 0 , "snkh %d %d %a"
 //					(*i)->body.back().first
 //					(*i)->body.back().second , (*i));
 //			j++;
@@ -46,11 +46,11 @@ snake::snake(int y , int x , int ini_dir , int ini_spd , const char *ini_name , 
 	for(i = 3 ; i >= 0 ; i--){
 		block[y][x + i] = 1;
 		this->body.push(make_pair(y , x + i));
-		mvaddch(this->body.back().first , this->body.back().second , BODY);		
+		mvaddch(this->body.back().first , this->body.back().second , BODY);
 	}
 
 	mvaddch(this->body.back().first , this->body.back().second , HEAD);
-	
+
 	if(!enable) enable = 1;
 	snakes.push_back(this);
 
@@ -87,7 +87,7 @@ void snake::move(void){
 	heady = this->body.back().first , nxty = heady + dct[dir].first;
 	headx = this->body.back().second , nxtx = headx + dct[dir].second;
 
-	if(nxty < 0 || nxty > LINES - 1 || nxtx < 0 || 
+	if(nxty < 0 || nxty > LINES - 1 || nxtx < 0 ||
 			nxtx > COLS - 1 || block[nxty][nxtx] == MASS ){
 
 		while(!body.empty()){
@@ -102,7 +102,7 @@ void snake::move(void){
 		return;
 	}
 
-	if(wait_food) 
+	if(wait_food)
 		block[nxty][nxtx] = wait_food , wait_food = 0;
 
 	int type;
@@ -119,11 +119,11 @@ void snake::move(void){
 			else if(speed > 5)
 				speed -= 3;
 			else if(speed > 1)
-				speed -= 1;	
+				speed -= 1;
 			mvprintw(LINES - 1 , 0 , "spd = %d" , speed);//attention
 		}
 		else if(type == SLOW){
-			speed += 1;	
+			speed += 1;
 		}
 		else if(type == POW){
 			clean_tree();
@@ -143,12 +143,12 @@ void snake::move(void){
 		block[this->body.front().first][this->body.front().second] = 0;
 		mvaddch(this->body.front().first , this->body.front().second , ' ');
 		this->body.pop();
-	}	
-	
+	}
+
 	block[nxty][nxtx] = blk;
 	mvaddch(nxty , nxtx , HEAD);//add new head
 	mvaddch(heady , headx , BODY);
 	this->body.push(make_pair(nxty , nxtx));
-	
+
 	return;
 }

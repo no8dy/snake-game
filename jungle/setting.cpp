@@ -30,9 +30,8 @@ void set(int mod){
 	return;
 }
 void out(void){
-
-	endwin();
 	free(block);
+	endwin();
 	exit(0);
 	return;
 }

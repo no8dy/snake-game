@@ -1,2 +1,2 @@
 # slither
-  two snake , like slither.io
+  two snakes , like slither.io
