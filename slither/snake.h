@@ -6,8 +6,8 @@ private:
 
 	int wait_food;
 	int static_for_cnt;
-	
-public:	
+
+public:
 	snake(int y , int x , int ini_dir , int ini_spd , const char *ini_name , int ini_blk);
 
 	int lv;

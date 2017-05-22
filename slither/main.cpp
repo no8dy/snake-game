@@ -1,12 +1,11 @@
 #include"native.h"
 #include"setting.h"
 #include"snake.h"
-#include"bullet.h"
 #include"clock.h"
 #include"item.h"
 pair<int,int> dct[4] = { make_pair(-1 , 0)  ,
-   						 make_pair( 1 , 0)  , 
-						 make_pair( 0 ,-1)  , 
+   						 make_pair( 1 , 0)  ,
+						 make_pair( 0 ,-1)  ,
 						 make_pair( 0 , 1) };
 
 int **block;
@@ -21,11 +20,10 @@ int main(void){
 // set clock
 // code:
 	//it works , as soon as be dimensiond
-	
+
 // create p1->s snake
 // code:
 	snake *p1 = NULL;
-
 	snake *p2 = NULL;
 
 //	mvprintw(0 , 10 , "lv %d" , p1->show_lv());//revise?
@@ -51,7 +49,7 @@ int main(void){
 			case P2_NEWLIFE:
 				if(!p2 || !p2->life){
 					if(p2) snake::snakes.remove(p2) , delete p2;
-					p2 = new snake(LINES/2 + 3 , COLS/2 , 2 ,15 , "snk_2" , 2);	
+					p2 = new snake(LINES/2 + 3 , COLS/2 , 2 ,15 , "snk_2" , 2);
 				}
 				break;
 			case P1_UP:
@@ -83,7 +81,7 @@ int main(void){
 //code:
 //				if(!bullet::enable){
 //					clk.add(&bullet::clk_hang);
-//					bullet::enable = 1; 
+//					bullet::enable = 1;
 //				}
 //				bullet* tem = new bullet(&p1->;
 //				tem->fire();
@@ -100,7 +98,7 @@ int main(void){
 //			break;
 //		}
 	}
-	mvprintw(0 , 0 , "Game Over");	
+	mvprintw(0 , 0 , "Game Over");
 	while((ch = getch()) != 'q');
 	endwin();
 	return 0;

@@ -1,6 +1,5 @@
 #include"native.h"
 #include"snake.h"
-#include"bullet.h"
 #include"item.h"
 #include"clock.h"
 
