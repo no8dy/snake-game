@@ -14,7 +14,7 @@ void mk_food(void){
 	while(block[(y = rand() % LINES)][(x = rand() % COLS)]);
 	block[y][x] = FOOD;
 	mvaddch(y , x , FOOD);
-	
+
 	quick_cnt++ , slow_cnt++;
 	if(quick_cnt == 1){
 		while(block[(y = rand() % LINES)][(x = rand() % COLS)]);
@@ -28,14 +28,14 @@ void mk_food(void){
 		mvaddch(y , x , SLOW);
 		quick_cnt = 0;
 	}
-	
+
 	return;
 }
 
 void mk_tree(void){
 	const int area = LINES * COLS;
 	const int max = LINES * COLS / 5 * 4;
-	static int cnt = 0;	
+	static int cnt = 0;
 	int item = MASS;
 	if(tree_num <= max){
 		if(cnt < mk_speed){
@@ -51,7 +51,7 @@ void mk_tree(void){
 		while(1){
 			if(block[y = (rand() % LINES)][x = (rand() % COLS)] == 0){
 //				list<snake *>::iterator i;
-//				for(i = snake::snakes.begin() ; 
+//				for(i = snake::snakes.begin() ;
 //						i != snake::snakes.end() ; i++){
 //
 //					snakey	= (*i)->body.back().first;
@@ -68,7 +68,7 @@ void mk_tree(void){
 		block[y][x] = item;
 		mvaddch(y , x , item);
 		if((tree_num > LINES * COLS / 25) && (p_exist)) item = MASS;
-		
+
 //		float basic = (float)area / 900;
 //		if(tree_num < LINES * COLS / 50){
 //			mk_speed = (int)60;// / basic;
@@ -84,7 +84,7 @@ void mk_tree(void){
 //		}
 //		else{
 //			mk_speed = (int)100;// / basic;
-//		}	
+//		}
 	}
 	return;
 }

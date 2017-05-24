@@ -42,7 +42,7 @@ void fire(void){
 	fire_x = body.back().second;
 	on_gun = 0;
 //	mvprintw(0 , LINES - 1 , "now %d %d direct %d value%d" , fire_y , fire_x , dt , block[fire_y][fire_x]);
-	
+
 	fire_y += 2 * dct[dt].first;
 	fire_x += 2 * dct[dt].second;
 	on = 1;
@@ -71,7 +71,7 @@ void fire_cnt(void){
 			if(onblock == 2 || onblock == 'T' || onblock == 'P'){
 				if(onblock == 'P')
 					clean_tree();
-				
+
 				if(onblock == 'T') tree_num--;
 				mvaddch(prey , prex , ' ');
 				mvaddch(fire_y , fire_x , ' ');
@@ -81,7 +81,7 @@ void fire_cnt(void){
 				prex = -1 , prey = -1;
 			}
 			mvaddch(prey , prex , ' ');
-			if(lv < 18){
+			if(lv < 18){//18
 				if(onblock != 0){
 					on = 0 , on_gun = 1 , mvprintw(LINES - 1 , 3 , "loaded---");
 					return;

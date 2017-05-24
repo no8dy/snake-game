@@ -3,32 +3,30 @@
 
 extern int **block , lv;
 
-
-
 void set(int mod){
-	int i , j;	
+	int i , j;
 	if(mod == 0){
 
 		initscr() , cbreak() , nonl() , noecho();
 		intrflush(stdscr,FALSE) , keypad(stdscr,TRUE);
 		curs_set(0);//invisible cursor
 
-		mvprintw(LINES / 3 + 3 , 
+		mvprintw(LINES / 3 + 3 ,
 				COLS / 3 , "Enter to Start");
-		mvprintw(LINES / 3 + 1 , 
+		mvprintw(LINES / 3 + 1 ,
 				COLS / 3 , "arrow key to change direction");
-		mvprintw(LINES / 3 + 2 , 
+		mvprintw(LINES / 3 + 2 ,
 				COLS / 3 , "space to clear tree");
-		mvprintw(LINES / 3 + 4 , 
+		mvprintw(LINES / 3 + 4 ,
 				COLS / 3 , "'q' to quit");
-        mvprintw(LINES / 3 + 5 , COLS / 3 , 
+        mvprintw(LINES / 3 + 5 , COLS / 3 ,
                 "P1 %c to new game , arrow key to control" , P1_NEWLIFE);
-        mvprintw(LINES / 3 + 6 , COLS / 3 , 
+        mvprintw(LINES / 3 + 6 , COLS / 3 ,
                 "P2 %c to new game , wasd key to control" , P2_NEWLIFE);
 	}
 	if(mod == 1){
 
-		block = (int **)malloc(LINES * sizeof(void *) + 
+		block = (int **)malloc(LINES * sizeof(void *) +
 							   LINES * COLS * sizeof(int));
 		int *iax = (int *)(block + LINES);
 
@@ -44,7 +42,7 @@ void set(int mod){
 			block[0][i] = MASS , block[LINES - 1][i] = MASS;
 
 		clear();
-		
+
 	}
 
 	box(stdscr,'|','-');

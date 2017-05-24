@@ -52,7 +52,7 @@ void go(int d){
 		lv++;
 		mvprintw(0 , 10 , "lv %d" , lv);
 		gen_ball();
-		printf(0 , 25 , "genball");
+		mvprintw(0 , 25 , "genball");
 	}
 
 	if(block[y][x] != 0 && block[y][x] != 2){
